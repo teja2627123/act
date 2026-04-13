@@ -9,9 +9,15 @@ export default function ContactPage() {
     window.location.href = "tel:+917330922633";
   };
 
-  const preventSubmit = (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    alert("This is a demo contact form.");
+    const formData = new FormData(e.currentTarget);
+    const name = formData.get("name") || "";
+    const phone = formData.get("phone") || "";
+    const message = formData.get("message") || "";
+    
+    const mailtoLink = `mailto:actinnfitness77@gmail.com?subject=enquiry%20from%20wbsite&body=Name:%20${name}%0D%0APhone:%20${phone}%0D%0AMessage:%0D%0A${message}`;
+    window.location.href = mailtoLink;
   };
 
   return (
@@ -89,18 +95,17 @@ export default function ContactPage() {
               </button>
             </div>
 
-            {/* Embed Google Map */}
-            <div className="w-full h-[300px] border border-zinc-800 rounded-lg overflow-hidden grayscale hover:grayscale-0 transition-all duration-500 shadow-xl">
-              <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15233.080539120671!2d78.4354452140411!3d17.345821217646445!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcba338f075cf39%3A0x2bfc2515b6741499!2sDurga%20Nagar%2C%20Mailardevpally%2C%20Hyderabad%2C%20Telangana%20500077!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin"
-                width="100%"
-                height="100%"
-                style={{ border: 0 }}
-                allowFullScreen
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-              ></iframe>
-            </div>
+            {/* Location Icon Instead of Map */}
+            <a 
+              href="https://maps.google.com/?q=ACTINN+FITNESS,+Durga+Nagar,+Mailardevpally,+Hyderabad"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-full h-[300px] border border-zinc-800 bg-black/50 rounded-lg flex flex-col items-center justify-center group hover:border-gym-red/50 transition-all duration-500 shadow-xl relative overflow-hidden"
+            >
+              <div className="absolute inset-0 bg-gym-red/5 translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-in-out z-0"></div>
+              <MapPin size={80} className="text-gym-red mb-4 group-hover:scale-110 group-hover:drop-shadow-[0_0_15px_rgba(230,0,0,0.8)] transition-all duration-300 relative z-10" />
+              <span className="text-gray-400 font-bold uppercase tracking-widest group-hover:text-white transition-colors relative z-10">Get Directions</span>
+            </a>
           </motion.div>
 
           {/* Contact Form */}
@@ -115,12 +120,14 @@ export default function ContactPage() {
                 Send a Message
               </h3>
 
-              <form onSubmit={preventSubmit} className="space-y-6">
+              <form onSubmit={handleSubmit} className="space-y-6">
+
                 <div>
                   <label htmlFor="name" className="block text-sm font-bold text-gray-400 uppercase tracking-widest mb-2">Full Name</label>
                   <input
                     type="text"
                     id="name"
+                    name="name"
                     required
                     className="w-full bg-zinc-900 border border-zinc-700 rounded-md py-4 px-5 text-white placeholder-gray-600 focus:outline-none focus:border-gym-red focus:ring-1 focus:ring-gym-red transition-all shadow-[inset_0_2px_4px_rgba(0,0,0,0.6)]"
                     placeholder="Enter your name"
@@ -132,6 +139,7 @@ export default function ContactPage() {
                   <input
                     type="tel"
                     id="phone"
+                    name="phone"
                     required
                     className="w-full bg-zinc-900 border border-zinc-700 rounded-md py-4 px-5 text-white placeholder-gray-600 focus:outline-none focus:border-gym-red focus:ring-1 focus:ring-gym-red transition-all shadow-[inset_0_2px_4px_rgba(0,0,0,0.6)]"
                     placeholder="Enter your phone number"
@@ -142,6 +150,7 @@ export default function ContactPage() {
                   <label htmlFor="message" className="block text-sm font-bold text-gray-400 uppercase tracking-widest mb-2">Message</label>
                   <textarea
                     id="message"
+                    name="message"
                     rows={5}
                     required
                     className="w-full bg-zinc-900 border border-zinc-700 rounded-md py-4 px-5 text-white placeholder-gray-600 focus:outline-none focus:border-gym-red focus:ring-1 focus:ring-gym-red transition-all shadow-[inset_0_2px_4px_rgba(0,0,0,0.6)] resize-none"

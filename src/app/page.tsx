@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { MoveRight, Dumbbell, Activity, Users, Flame } from "lucide-react";
+import Slideshow from "@/components/Slideshow";
 
 export default function Home() {
   return (
@@ -109,6 +110,20 @@ export default function Home() {
               </motion.div>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* Gallery Slideshow Section */}
+      <section className="py-24 relative z-10 bg-black/50 border-y border-zinc-800">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-5xl font-black tracking-tight text-white uppercase drop-shadow-[0_0_5px_rgba(255,255,255,0.3)]">
+              Our <span className="text-gym-red">Facility</span>
+            </h2>
+            <div className="h-1 w-24 bg-gym-red mx-auto mt-6 shadow-[0_0_10px_rgba(230,0,0,0.8)]"></div>
+          </div>
+          
+          <Slideshow />
         </div>
       </section>
 

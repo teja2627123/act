@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { Menu, X } from "lucide-react";
 
 export default function Navbar() {
@@ -33,9 +34,17 @@ export default function Navbar() {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between">
-          <Link href="/" className="flex items-center space-x-2 group">
-            <span className="text-2xl font-black tracking-tighter text-white group-hover:text-gym-red transition-colors duration-300 drop-shadow-[0_0_10px_rgba(230,0,0,0.8)]">
-              ACTINN<span className="text-gym-red">FITNESS</span>
+          <Link href="/" className="flex items-center space-x-3 group">
+            <div className="relative w-14 h-14 md:w-16 md:h-16 rounded-full overflow-hidden border-2 border-transparent group-hover:border-gym-red transition-all duration-300 drop-shadow-[0_0_10px_rgba(230,0,0,0.5)]">
+              <Image 
+                src="/logo.jpg" 
+                alt="Actinn Fitness Logo" 
+                fill
+                className="object-cover"
+              />
+            </div>
+            <span className="text-xl md:text-2xl font-black tracking-tighter text-white group-hover:text-gym-red transition-colors duration-300 drop-shadow-[0_0_10px_rgba(230,0,0,0.8)]">
+              ACTINN<span className="text-gym-red group-hover:text-white transition-colors duration-300">FITNESS</span>
             </span>
           </Link>
 

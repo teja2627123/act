@@ -66,7 +66,7 @@ export default function Footer() {
               </li>
               <li className="flex items-center space-x-3">
                 <Mail className="text-gym-red flex-shrink-0" size={20} />
-                <span>contact@actinnfitness.com</span>
+                <span>actinnfitness77@gmail.com</span>
               </li>
             </ul>
           </div>

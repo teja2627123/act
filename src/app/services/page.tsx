@@ -1,34 +1,39 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { User, Activity, Flame, HeartPulse, Dumbbell } from "lucide-react";
+import { Dumbbell, HeartPulse, Activity, Music, Users, Droplets } from "lucide-react";
 
 export default function ServicesPage() {
   const services = [
-    {
-      title: "Personal Training",
-      icon: <User className="w-12 h-12 text-gym-red" />,
-      desc: "One-on-one customized workouts tailored to your precise body type and capabilities to ensure maximum gains.",
-    },
     {
       title: "Strength Training",
       icon: <Dumbbell className="w-12 h-12 text-gym-red" />,
       desc: "Access our elite free weights area and machinery to build pure power and explosive strength.",
     },
     {
-      title: "Weight Loss",
-      icon: <Flame className="w-12 h-12 text-gym-red" />,
-      desc: "High-intensity fat-burning routines designed to transform your physique and push your endurance.",
-    },
-    {
-      title: "Muscle Building",
-      icon: <Activity className="w-12 h-12 text-gym-red" />,
-      desc: "Hypertrophy-focused programs with advanced nutritional guidance and precise tracking.",
-    },
-    {
       title: "Cardio Training",
       icon: <HeartPulse className="w-12 h-12 text-gym-red" />,
       desc: "State-of-the-art cardiovascular equipment to elevate your heart rate and build unbelievable stamina.",
+    },
+    {
+      title: "Cross Fit",
+      icon: <Activity className="w-12 h-12 text-gym-red" />,
+      desc: "High-intensity functional movements designed to push your limits and improve overall fitness.",
+    },
+    {
+      title: "Zumba",
+      icon: <Music className="w-12 h-12 text-gym-red" />,
+      desc: "Fun, energetic dance workouts that burn calories and keep you moving to the rhythm.",
+    },
+    {
+      title: "Professional Trainers",
+      icon: <Users className="w-12 h-12 text-gym-red" />,
+      desc: "Expert guidance from certified professionals dedicated to helping you achieve your fitness goals.",
+    },
+    {
+      title: "Premium Amenities",
+      icon: <Droplets className="w-12 h-12 text-gym-red" />,
+      desc: "Recover and refresh with our steam rooms, showers, and secure locker facilities.",
     },
   ];
 
