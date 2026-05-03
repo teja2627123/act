@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Check, Plus, Dumbbell, Activity, Flame, Droplets } from "lucide-react";
+import { Plus, Dumbbell, Activity, Flame, Droplets } from "lucide-react";
 
 export default function MembershipPage() {
   const membershipCategories = [
