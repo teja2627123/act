@@ -1,49 +1,37 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Check, Plus } from "lucide-react";
+import { Check, Plus, Dumbbell, Activity, Flame, Droplets } from "lucide-react";
 
 export default function MembershipPage() {
-  const plans = [
+  const membershipCategories = [
     {
       name: "Men's Package",
-      price: "19,900",
-      period: "/year",
-      features: [
-        "Annual (12 Months): ₹ 19,900/-",
-        "Half Year (6 Months): ₹ 12,900/-",
-        "3 Months: ₹ 8,200/-",
-        "Cardio & Strength Training",
-        "CrossFit & Free Weights",
+      highlightCategory: false,
+      plans: [
+        { duration: "3 Months", price: "8,200", highlight: false },
+        { duration: "6 Months", price: "12,900", highlight: false },
+        { duration: "12 Months", price: "19,900", highlight: true, tag: "Best Value" },
       ],
-      highlight: false,
     },
     {
       name: "Women's Package",
-      price: "10,900",
-      period: "/year",
-      features: [
-        "Annual (12 Months): ₹ 10,900/-",
-        "Half Year (6 Months): ₹ 7,900/-",
-        "3 Months: ₹ 4,900/-",
-        "Zumba & Cardio",
-        "Strength & Steam",
-      ],
-      highlight: true,
+      highlightCategory: true,
       tag: "Special Offer",
+      plans: [
+        { duration: "3 Months", price: "4,900", highlight: false },
+        { duration: "6 Months", price: "7,900", highlight: false },
+        { duration: "12 Months", price: "10,900", highlight: true, tag: "Best Value" },
+      ],
     },
     {
       name: "Couple Package",
-      price: "23,490",
-      period: "/year",
-      features: [
-        "Annual (12 Months): ₹ 23,490/-",
-        "Half Year (6 Months): ₹ 17,900/-",
-        "3 Months: ₹ 10,900/-",
-        "Workout Together",
-        "Full Facility Access",
+      highlightCategory: false,
+      plans: [
+        { duration: "3 Months", price: "10,900", highlight: false },
+        { duration: "6 Months", price: "17,900", highlight: false },
+        { duration: "12 Months", price: "23,490", highlight: true, tag: "Best Value" },
       ],
-      highlight: false,
     },
   ];
 
@@ -54,9 +42,16 @@ export default function MembershipPage() {
     { title: "Day Pass", price: "₹399" },
   ];
 
+  const commonFacilities = [
+    { name: "Strength Training", icon: Dumbbell },
+    { name: "Cardio", icon: Activity },
+    { name: "CrossFit", icon: Flame },
+    { name: "Steam", icon: Droplets },
+  ];
+
   return (
     <main className="min-h-screen bg-gym-dark pt-28 pb-20">
-      <section className="text-center relative max-w-7xl mx-auto px-4 mt-12 mb-20">
+      <section className="text-center relative max-w-7xl mx-auto px-4 mt-12 mb-16">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -73,54 +68,113 @@ export default function MembershipPage() {
       </section>
 
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col lg:flex-row items-center justify-center gap-8 lg:gap-12">
-          {plans.map((plan, i) => (
+        
+        {/* Facilities Included Section */}
+        <div className="mb-20 relative z-10">
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="bg-zinc-900/80 border border-gym-red/30 rounded-2xl p-8 md:p-10 shadow-[0_0_30px_rgba(230,0,0,0.15)] relative overflow-hidden"
+          >
+            <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-gym-red to-transparent opacity-70"></div>
+            
+            <div className="text-center mb-10">
+              <h2 className="text-2xl md:text-3xl font-black text-white uppercase tracking-widest">
+                Facilities <span className="text-gym-red">Included</span>
+              </h2>
+            </div>
+            
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:flex md:flex-row flex-wrap justify-center items-center gap-8 md:gap-16">
+              {commonFacilities.map((facility, i) => (
+                <motion.div 
+                  key={i} 
+                  whileHover={{ scale: 1.1 }}
+                  className="flex flex-col items-center gap-4 group cursor-default"
+                >
+                  <div className="w-16 h-16 md:w-20 md:h-20 rounded-full bg-black border border-zinc-800 flex items-center justify-center group-hover:border-gym-red group-hover:shadow-[0_0_20px_rgba(230,0,0,0.4)] transition-all duration-300 relative">
+                    <div className="absolute inset-0 rounded-full bg-gym-red/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    <facility.icon className="w-7 h-7 md:w-8 md:h-8 text-white group-hover:text-gym-red transition-colors duration-300 relative z-10" />
+                  </div>
+                  <span className="text-gray-300 font-medium uppercase tracking-widest text-xs md:text-sm group-hover:text-white transition-colors duration-300 text-center">
+                    {facility.name}
+                  </span>
+                </motion.div>
+              ))}
+            </div>
+          </motion.div>
+        </div>
+
+        <div className="flex flex-col gap-16">
+          {membershipCategories.map((category, i) => (
             <motion.div
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.5, delay: i * 0.15 }}
-              key={plan.name}
-              className={`w-full lg:w-1/3 p-8 rounded-lg border transition-all duration-300 ${
-                plan.highlight
-                  ? "bg-gym-dark border-gym-red shadow-glow-red-lg transform scale-105 hover:scale-110 z-10 relative"
-                  : "bg-black border-zinc-800 hover:border-gym-red/50 hover:-translate-y-2 hover:shadow-[0_0_20px_rgba(230,0,0,0.15)] z-0 relative"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.6, delay: i * 0.15 }}
+              key={category.name}
+              className={`w-full bg-black rounded-2xl p-6 md:p-10 border relative ${
+                category.highlightCategory
+                  ? "border-gym-red/20 shadow-[0_0_15px_rgba(230,0,0,0.05)]"
+                  : "border-zinc-800"
               }`}
             >
-              {plan.highlight && (
-                <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-gym-red text-white py-1 px-4 text-sm font-bold uppercase tracking-widest rounded-full shadow-[0_0_15px_rgba(230,0,0,0.8)] whitespace-nowrap">
-                  {plan.tag || "Most Popular"}
+              {category.highlightCategory && (
+                <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-gym-red text-white py-1.5 px-6 text-sm font-bold uppercase tracking-widest rounded-full shadow-[0_0_15px_rgba(230,0,0,0.8)] whitespace-nowrap z-10">
+                  {category.tag || "Special Offer"}
                 </div>
               )}
               
               <div className="text-center mb-10">
-                <h3 className="text-2xl font-black text-white uppercase tracking-widest mb-4">
-                  {plan.name}
-                </h3>
-                <div className="flex justify-center items-end text-gym-red">
-                  <span className="text-2xl font-bold pb-2 mr-1">₹</span>
-                  <span className="text-5xl lg:text-6xl font-black tracking-tighter">{plan.price}</span>
-                  <span className="text-xl text-gray-400 font-medium pb-2 ml-1">{plan.period}</span>
-                </div>
+                <h2 className="text-3xl md:text-4xl font-black text-white uppercase tracking-widest">
+                  {category.name}
+                </h2>
               </div>
 
-              <ul className="space-y-4 mb-10 text-gray-300 font-medium">
-                {plan.features.map((item, j) => (
-                  <li key={j} className="flex items-center space-x-3">
-                    <Check className={`w-5 h-5 flex-shrink-0 ${plan.highlight ? 'text-gym-red' : 'text-gray-500'}`} />
-                    <span className="text-sm sm:text-base">{item}</span>
-                  </li>
-                ))}
-              </ul>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                {category.plans.map((plan) => (
+                  <motion.div
+                    whileHover={{ y: -8, scale: plan.highlight ? 1.02 : 1 }}
+                    key={plan.duration}
+                    className={`flex flex-col bg-zinc-900 rounded-xl p-6 border transition-all duration-300 relative group ${
+                      plan.highlight
+                        ? "border-gym-red shadow-[0_0_25px_rgba(230,0,0,0.3)] md:-translate-y-3 z-10"
+                        : "border-zinc-800 hover:border-gym-red/50 hover:shadow-glow-red z-0"
+                    }`}
+                  >
+                    {plan.highlight && (
+                      <div className="absolute -top-3 right-4 bg-gym-red text-white py-1 px-3 text-xs font-bold uppercase tracking-wider rounded-full shadow-[0_0_10px_rgba(230,0,0,0.6)] z-10">
+                        {plan.tag}
+                      </div>
+                    )}
+                    
+                    <h3 className="text-xl font-bold text-gray-300 uppercase tracking-wider mb-2">
+                      {plan.duration}
+                    </h3>
+                    
+                    <div className="flex items-end text-gym-red mb-3">
+                      <span className="text-2xl font-bold pb-1 mr-1">₹</span>
+                      <span className="text-4xl md:text-5xl font-black tracking-tighter">{plan.price}</span>
+                    </div>
 
-              <button
-                className={`w-full py-4 text-center font-bold text-white uppercase tracking-wider rounded transition-all duration-300 ${
-                  plan.highlight
-                    ? "bg-gym-red hover:bg-red-700 shadow-glow-red"
-                    : "bg-zinc-900 border border-zinc-700 hover:bg-gym-red hover:border-gym-red hover:shadow-glow-red"
-                }`}
-              >
-                Select Plan
-              </button>
+                    <p className="text-xs text-zinc-500 uppercase tracking-wider mb-6">
+                      Access to all facilities
+                    </p>
+                    
+                    <div className="mt-auto pt-4 border-t border-zinc-800/50">
+                      <button
+                        className={`w-full py-3.5 mt-2 text-sm font-bold text-white uppercase tracking-wider rounded transition-all duration-300 ${
+                          plan.highlight
+                            ? "bg-gym-red hover:bg-red-700 shadow-[0_0_15px_rgba(230,0,0,0.4)]"
+                            : "bg-black border border-zinc-700 group-hover:bg-gym-red group-hover:border-gym-red group-hover:shadow-[0_0_15px_rgba(230,0,0,0.4)]"
+                        }`}
+                      >
+                        Select Plan
+                      </button>
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
             </motion.div>
           ))}
         </div>
@@ -153,3 +207,4 @@ export default function MembershipPage() {
     </main>
   );
 }
+

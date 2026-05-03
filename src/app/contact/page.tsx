@@ -5,10 +5,6 @@ import { MapPin, Phone, Clock, Send } from "lucide-react";
 import React from "react";
 
 export default function ContactPage() {
-  const handleCall = () => {
-    window.location.href = "tel:+917330922633";
-  };
-
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const formData = new FormData(e.currentTarget);
@@ -81,18 +77,18 @@ export default function ContactPage() {
                   <Clock className="text-gym-red mt-1 mr-4 flex-shrink-0" size={24} />
                   <div>
                     <h4 className="font-bold text-gray-200 uppercase tracking-widest text-sm mb-1">Operating Hours</h4>
-                    <p className="text-gray-400 font-medium">Mon - Sat: 5:00 AM - 11:00 PM<br />Sun: 6:00 AM - 12:00 PM</p>
+                    <p className="text-gray-400 font-medium">Mon - Sat: 5:00 AM - 11:00 PM<br />Sun: 5:00 AM - 2:00 PM</p>
                   </div>
                 </div>
               </div>
 
-              <button
-                onClick={handleCall}
+              <a
+                href="tel:+917330922633"
                 className="mt-10 w-full py-4 bg-gym-red hover:bg-red-700 text-white font-bold uppercase tracking-wider rounded flex items-center justify-center transition-all duration-300 shadow-glow-red hover:shadow-glow-red-lg"
               >
                 <Phone size={20} className="mr-3" />
                 Call Us Now
-              </button>
+              </a>
             </div>
 
             {/* Location Icon Instead of Map */}
