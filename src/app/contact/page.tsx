@@ -83,7 +83,7 @@ export default function ContactPage() {
               </div>
 
               <a
-                href="tel:+917330922633"
+                href="tel:7330922633"
                 className="mt-10 w-full py-4 bg-gym-red hover:bg-red-700 text-white font-bold uppercase tracking-wider rounded flex items-center justify-center transition-all duration-300 shadow-glow-red hover:shadow-glow-red-lg"
               >
                 <Phone size={20} className="mr-3" />
