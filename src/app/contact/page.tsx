@@ -11,7 +11,7 @@ export default function ContactPage() {
     const name = formData.get("name") || "";
     const phone = formData.get("phone") || "";
     const message = formData.get("message") || "";
-    
+
     const mailtoLink = `mailto:actinnfitness77@gmail.com?subject=enquiry%20from%20wbsite&body=Name:%20${name}%0D%0APhone:%20${phone}%0D%0AMessage:%0D%0A${message}`;
     window.location.href = mailtoLink;
   };
@@ -44,13 +44,13 @@ export default function ContactPage() {
             className="space-y-12"
           >
             <div className="bg-black/80 border border-zinc-800 p-8 rounded-lg shadow-xl relative overflow-hidden group hover:border-gym-red/50 transition-colors duration-500">
-              <div className="absolute inset-0 bg-gradient-to-br from-gym-red/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-              
+              <div className="absolute inset-0 bg-gradient-to-br from-gym-red/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
+
               <h3 className="text-2xl font-bold text-white uppercase tracking-wider mb-8 flex items-center">
                 <span className="w-2 h-8 bg-gym-red inline-block mr-4 shadow-glow-red"></span>
                 Headquarters
               </h3>
-              
+
               <div className="space-y-6">
                 <div className="flex items-start">
                   <MapPin className="text-gym-red mt-1 mr-4 flex-shrink-0" size={24} />
@@ -84,7 +84,7 @@ export default function ContactPage() {
 
               <a
                 href="tel:7330922633"
-                className="mt-10 w-full py-4 bg-gym-red hover:bg-red-700 text-white font-bold uppercase tracking-wider rounded flex items-center justify-center transition-all duration-300 shadow-glow-red hover:shadow-glow-red-lg"
+                className="mt-10 w-full py-4 bg-gym-red hover:bg-red-700 text-white font-bold uppercase tracking-wider rounded flex items-center justify-center transition-all duration-300 shadow-glow-red hover:shadow-glow-red-lg relative z-10 cursor-pointer"
               >
                 <Phone size={20} className="mr-3" />
                 Call Us Now
@@ -92,7 +92,7 @@ export default function ContactPage() {
             </div>
 
             {/* Location Icon Instead of Map */}
-            <a 
+            <a
               href="https://maps.google.com/?q=ACTINN+FITNESS,+Durga+Nagar,+Mailardevpally,+Hyderabad"
               target="_blank"
               rel="noopener noreferrer"
