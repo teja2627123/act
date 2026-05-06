@@ -91,17 +91,20 @@ export default function ContactPage() {
               </a>
             </div>
 
-            {/* Location Icon Instead of Map */}
-            <a
-              href="https://maps.google.com/?q=ACTINN+FITNESS,+Durga+Nagar,+Mailardevpally,+Hyderabad"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="w-full h-[300px] border border-zinc-800 bg-black/50 rounded-lg flex flex-col items-center justify-center group hover:border-gym-red/50 transition-all duration-500 shadow-xl relative overflow-hidden"
-            >
-              <div className="absolute inset-0 bg-gym-red/5 translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-in-out z-0"></div>
-              <MapPin size={80} className="text-gym-red mb-4 group-hover:scale-110 group-hover:drop-shadow-[0_0_15px_rgba(230,0,0,0.8)] transition-all duration-300 relative z-10" />
-              <span className="text-gray-400 font-bold uppercase tracking-widest group-hover:text-white transition-colors relative z-10">Get Directions</span>
-            </a>
+            {/* Embedded Google Map */}
+            <div className="w-full h-[300px] border border-zinc-800 bg-black/50 rounded-lg overflow-hidden shadow-xl relative group hover:border-gym-red/50 transition-all duration-500">
+              <iframe
+                width="100%"
+                height="100%"
+                frameBorder="0"
+                style={{ border: 0, filter: "invert(90%) hue-rotate(180deg) grayscale(20%) contrast(105%)" }}
+                src="https://maps.google.com/maps?q=ACTINN+FITNESS,+Durga+Nagar,+Mailardevpally,+Hyderabad&t=&z=15&ie=UTF8&iwloc=&output=embed"
+                allowFullScreen
+                aria-hidden="false"
+                tabIndex={0}
+                className="opacity-70 group-hover:opacity-100 transition-opacity duration-500"
+              ></iframe>
+            </div>
           </motion.div>
 
           {/* Contact Form */}
