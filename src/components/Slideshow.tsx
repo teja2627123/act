@@ -5,11 +5,10 @@ import { motion, AnimatePresence } from "framer-motion";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
 const images = [
-  "/images/gallery/media__1775991148607.jpg",
-  "/images/gallery/media__1775991148629.jpg",
-  "/images/gallery/media__1775991148755.jpg",
-  "/images/gallery/media__1775991148793.jpg",
-  "/images/gallery/media__1775991148806.jpg",
+  "/images/slideshow/slide1.jpg?v=1",
+  "/images/slideshow/slide2.jpg?v=1",
+  "/images/slideshow/slide3.jpg?v=1",
+  "/images/slideshow/slide4.jpg?v=1",
 ];
 
 export default function Slideshow() {
@@ -31,7 +30,7 @@ export default function Slideshow() {
   };
 
   return (
-    <div className="relative w-full max-w-7xl mx-auto h-[400px] md:h-[600px] rounded-lg overflow-hidden shadow-[0_0_30px_rgba(230,0,0,0.2)] group">
+    <div className="relative w-full max-w-7xl mx-auto h-[400px] md:h-[600px] rounded-2xl overflow-hidden shadow-[0_15px_50px_-15px_rgba(0,0,0,0.7)] group ring-1 ring-white/5">
       <AnimatePresence mode="wait">
         <motion.img
           key={currentIndex}
@@ -45,7 +44,9 @@ export default function Slideshow() {
         />
       </AnimatePresence>
 
-      <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+      {/* Premium dark gradient overlays for depth and contrast */}
+      <div className="absolute inset-0 bg-black/20 pointer-events-none transition-opacity duration-500 group-hover:bg-black/10"></div>
+      <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/10 to-black/30 pointer-events-none"></div>
 
       {/* Navigation arrows (shown on hover) */}
       <button
