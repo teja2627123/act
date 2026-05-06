@@ -10,14 +10,22 @@ export default function Home() {
     <main className="min-h-screen bg-gym-dark">
       {/* Hero Section */}
       <section className="relative h-screen flex items-center justify-center overflow-hidden">
-        {/* Background Image with Overlay */}
-        <div
-          className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat"
-          style={{
-            backgroundImage: "url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=1920&auto=format&fit=crop')",
-          }}
-        >
-          <div className="absolute inset-0 bg-black/80 bg-gradient-to-t from-gym-dark to-transparent"></div>
+        {/* Background Video with Overlay */}
+        <div className="absolute inset-0 z-0 w-full h-full">
+          <video
+            autoPlay
+            muted
+            loop
+            playsInline
+            className="absolute inset-0 w-full h-full object-cover"
+          >
+            <source
+              src="/videos/hero-video.mp4"
+              type="video/mp4"
+            />
+          </video>
+          {/* Subtle dark overlay for text readability and smooth transition */}
+          <div className="absolute inset-0 bg-black/60 bg-gradient-to-t from-gym-dark via-transparent to-black/40"></div>
         </div>
 
         <div className="relative z-10 text-center px-4 max-w-5xl mx-auto">
