@@ -5,11 +5,11 @@ import { motion, AnimatePresence } from "framer-motion";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
 const images = [
-  "/images/slideshow/slide1.JPG",
-  "/images/slideshow/slide2.JPG",
-  "/images/slideshow/slide3.JPG",
-  "/images/slideshow/slide4.JPG",
-  "/images/slideshow/slide5.JPG",
+  "/images/slideshow/slide1.jpg",
+  "/images/slideshow/slide2.jpg",
+  "/images/slideshow/slide3.jpg",
+  "/images/slideshow/slide4.jpg",
+  "/images/slideshow/slide5.jpg",
 ];
 
 export default function Slideshow() {
