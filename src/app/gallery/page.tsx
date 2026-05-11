@@ -5,12 +5,11 @@ import Image from "next/image";
 
 export default function GalleryPage() {
   const photos = [
-    "/images/gallery/new_gallery_1.jpg?v=1",
-    "/images/gallery/new_gallery_2.jpg?v=1",
-    "/images/gallery/new_gallery_3.jpg?v=1",
+    "/images/gallery/new_gallery_1.JPG?v=1",
+    "/images/gallery/new_gallery_2.JPG?v=1",
+    "/images/gallery/new_gallery_3.JPG?v=1",
     "/images/gallery/new_gallery_4.jpg?v=1",
     "/images/gallery/media__1775993944219.jpg",
-    "/images/gallery/media__1775991148607.jpg",
     "/images/gallery/media__1775991148629.jpg",
     "/images/gallery/media__1775991148755.jpg",
     "/images/gallery/media__1775991148793.jpg",
