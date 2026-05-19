@@ -5,15 +5,15 @@ import Image from "next/image";
 
 export default function GalleryPage() {
   const photos = [
-    "/images/gallery/gallery_1.jpg",
-    "/images/gallery/gallery_2.jpg",
-    "/images/gallery/gallery_3.jpg",
-    "/images/gallery/gallery_4.jpg",
-    "/images/gallery/media__1775993944219.jpg",
-    "/images/gallery/media__1775991148629.jpg",
-    "/images/gallery/media__1775991148755.jpg",
-    "/images/gallery/media__1775991148793.jpg",
-    "/images/gallery/media__1775991148806.jpg"
+    "/images/gallery/CARD.JPG",
+    "/images/gallery/LTT.JPG",
+    "/images/gallery/DJI_0272.JPG",
+    "/images/gallery/DSC04606 (1).JPG",
+    "/images/gallery/DSC04646.JPG",
+    "/images/gallery/DSC04781.JPG",
+    "/images/gallery/DSC04796.JPG",
+    "/images/gallery/DSC04799.JPG",
+    "/images/gallery/vinay tkr20260417_0463T01.JPG"
   ];
 
   return (
@@ -32,16 +32,14 @@ export default function GalleryPage() {
       </section>
 
       <section className="max-w-[1400px] mx-auto px-4 sm:px-6">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-6">
           {photos.map((src, i) => (
             <motion.div
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.5, delay: i * 0.1 }}
               key={i}
-              className={`relative group overflow-hidden bg-black ${
-                i === 0 || i === 3 ? "md:col-span-2 md:row-span-2 aspect-[16/9] md:aspect-auto" : "aspect-square"
-              }`}
+              className="relative group overflow-hidden bg-black aspect-[16/9] rounded-xl shadow-xl"
             >
               {/* Dark Overlay */}
               <div className="absolute inset-0 bg-black/60 group-hover:bg-black/10 transition-colors duration-500 z-10 pointer-events-none"></div>

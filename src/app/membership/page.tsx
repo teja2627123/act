@@ -162,15 +162,18 @@ export default function MembershipPage() {
                     </p>
                     
                     <div className="mt-auto pt-4 border-t border-zinc-800/50">
-                      <button
-                        className={`w-full py-3.5 mt-2 text-sm font-bold text-white uppercase tracking-wider rounded transition-all duration-300 ${
+                      <a
+                        href={`https://wa.me/917330922633?text=Hi! I am interested in the ${plan.duration} ${category.name} for ₹${plan.price}.`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className={`block text-center w-full py-3.5 mt-2 text-sm font-bold text-white uppercase tracking-wider rounded transition-all duration-300 ${
                           plan.highlight
                             ? "bg-gym-red hover:bg-red-700 shadow-[0_0_15px_rgba(230,0,0,0.4)]"
                             : "bg-black border border-zinc-700 group-hover:bg-gym-red group-hover:border-gym-red group-hover:shadow-[0_0_15px_rgba(230,0,0,0.4)]"
                         }`}
                       >
                         Select Plan
-                      </button>
+                      </a>
                     </div>
                   </motion.div>
                 ))}
